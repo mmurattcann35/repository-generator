@@ -23,6 +23,9 @@ class RepositoryGeneratorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        $this->commands([
+            RepositoryMakeCommand::class,
+            InterfaceMakeCommand::class
+        ]);
     }
 }

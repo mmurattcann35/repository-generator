@@ -28,9 +28,6 @@ class InterfaceMakeCommand extends GeneratorCommand
     private $repositoryClass;
 
     private $model;
-
-    private $repositoryName;
-    private $modelName;
     /**
      * Create a new command instance.
      *
@@ -97,7 +94,7 @@ class InterfaceMakeCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return  base_path('app/stubs/IRepository.stub');
+        return  (__DIR__.'/../../stubs/IRepository.stub');
     }
 
     protected function getDefaultNamespace($rootNamespace)

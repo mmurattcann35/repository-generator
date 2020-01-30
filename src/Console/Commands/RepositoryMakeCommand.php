@@ -28,8 +28,6 @@ class RepositoryMakeCommand extends GeneratorCommand
 
     private $model;
 
-    private $repositoryName;
-    private $modelName;
     /**
      * Create a new command instance.
      *
@@ -110,7 +108,7 @@ class RepositoryMakeCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return  base_path('app/stubs/Repository.stub');
+        return  (__DIR__.'/../../stubs/Repository.stub');
     }
 
     protected function getDefaultNamespace($rootNamespace)

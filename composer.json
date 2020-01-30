@@ -10,13 +10,12 @@
             "email": "muratcan.php@gmail.com"
         }
     ],
-    "require": {},
     "extra": {
         "laravel": {
             "providers": [
                 "Mmurattcann\\RepositoryGenerator\\RepositoryGeneratorServiceProvider"
             ]
         }
-    },
+    }
 
 }

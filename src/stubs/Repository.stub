@@ -1,0 +1,86 @@
+<?php
+namespace App\Classes\Repositories;
+
+use App\DummyModel;
+use App\Repositories\Interfaces\IDummyRepository;
+use Illuminate\Http\Request;
+
+class DummyRepository implements IDummyRepository
+{
+    protected $model;
+    /**
+       * Instantiate repository
+       *
+       * @param DummyModel $model
+       */
+    public function __construct(DummyModel $model)
+    {
+        $this->model = $model;
+    }
+
+    public function getById(int $id)
+    {
+        return $this->model->findById($id);
+    }
+
+    public function getBySlug(string $slug)
+    {
+        return $this->model->where('slug', $slug)->get();
+    }
+
+    public function getAll(string $order = "id", string $by = "asc")
+    {
+        return $this->model->orderBy($order, $by)->get();
+    }
+
+    public function getAllWithPaginate(int $limit = 10)
+    {
+
+        return $this->model->paginate($limit);
+    }
+
+    public function getAllWithWhere( string $where = null , string $condition = null)
+    {
+
+        return $this->model->where($where, $condition)->get();
+    }
+
+    /*
+     * if you change a spesific value of request key
+     * For Example; if you want to modify file request named image
+     * You can use like that:
+     *
+     * $data["image"] = Mmurattcann/LaraImage::upload($request->file('image'))
+    */
+    public function store(Request $request)
+    {
+
+        $data = $request->all();
+
+        return  $this->model->create($data);
+    }
+
+    /*
+     * You can also modify this request
+     *  For Example;
+     *
+     *  $data["name"] = Str::upper("john doe");
+     */
+    public function update(Request $request, int $id)
+    {
+
+        $model = $this->getById($id);
+
+        $data = $request->all();
+
+        return $model->update($data);
+    }
+
+    public function destroy(int $id)
+    {
+
+        $model = $this->getById($id);
+
+        return $model->delete();
+    }
+}

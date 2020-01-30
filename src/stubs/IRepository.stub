@@ -1,0 +1,24 @@
+<?php
+namespace App\Repositories\Interfaces;
+
+use Illuminate\Http\Request;
+
+interface IDummyRepository
+{
+
+    public function getById(int $id);
+
+    public function getBySlug(string $slug);
+
+    public function getAll(string $order = "id", string $by = "asc");
+
+    public function getAllWithPaginate(int $limit = 10);
+
+    public function getAllWithWhere( string $where = null , string $condition = null);
+
+    public function store(Request $request);
+
+    public function update(Request $request, int $id);
+
+    public function destroy(int $id);
+}

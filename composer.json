@@ -1,0 +1,22 @@
+{
+    "name": "mmurattcann/repository-generator",
+    "description": "You can easily generate interface and class for resository with given model name. Created class implements created interface and they have methods to do basic operations like store(), getAll(), etc.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Murat CAN",
+            "email": "muratcan.php@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mmurattcann\\RepositoryGenerator\\RepositoryGeneratorServiceProvider"
+            ]
+        }
+    },
+
+}

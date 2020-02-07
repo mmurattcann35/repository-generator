@@ -25,7 +25,7 @@ class DummyRepository implements IDummyRepository
 
     public function getById(int $id)
     {
-        return $this->baseQuery()baseQuery()->find($id);
+        return $this->baseQuery()->find($id);
     }
 
     public function getBySlug(string $slug)

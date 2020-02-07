@@ -1,5 +1,5 @@
 <?php
-namespace App\Classes\Repositories;
+namespace App\Repositories\Classes;
 
 use App\DummyModel;
 use App\Repositories\Interfaces\IDummyRepository;

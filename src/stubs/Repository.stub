@@ -8,14 +8,10 @@ use Illuminate\Http\Request;
 class DummyRepository implements IDummyRepository
 {
     protected $model;
-    /**
-       * Instantiate repository
-       *
-       * @param DummyModel $model
-       */
-    public function __construct(DummyModel $model)
+
+    public function __construct()
     {
-        $this->model = $model;
+        $this->model = new DummyModel();
     }
 
     public function baseQuery()

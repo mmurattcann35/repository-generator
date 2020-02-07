@@ -18,31 +18,36 @@ class DummyRepository implements IDummyRepository
         $this->model = $model;
     }
 
+    public function baseQuery()
+    {
+        return $this->model::query();
+    }
+
     public function getById(int $id)
     {
-        return $this->model->findById($id);
+        return $this->baseQuery()baseQuery()->find($id);
     }
 
     public function getBySlug(string $slug)
     {
-        return $this->model->where('slug', $slug)->get();
+        return $this->baseQuery()->where('slug', $slug)->get();
     }
 
     public function getAll(string $order = "id", string $by = "asc")
     {
-        return $this->model->orderBy($order, $by)->get();
+        return $this->baseQuery()->orderBy($order, $by)->get();
     }
 
     public function getAllWithPaginate(int $limit = 10)
     {
 
-        return $this->model->paginate($limit);
+        return $this->baseQuery()->paginate($limit);
     }
 
     public function getAllWithWhere( string $where = null , string $condition = null)
     {
 
-        return $this->model->where($where, $condition)->get();
+        return $this->baseQuery()->where($where, $condition)->get();
     }
 
     /*
@@ -57,7 +62,7 @@ class DummyRepository implements IDummyRepository
 
         $data = $request->all();
 
-        return  $this->model->create($data);
+        return  $this->baseQuery()->create($data);
     }
 
     /*
